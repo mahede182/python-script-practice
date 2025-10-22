@@ -35,6 +35,11 @@ jobs:
           echo "=== Script Environment ==="
           env | sort
           echo "=========================="
+          python check_balance.py
 
       - name: run check balance
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ACCOUNT_NO: ${{ secrets.ACCOUNT_NO }}
         run: python check_balance.py

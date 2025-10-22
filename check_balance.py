@@ -4,6 +4,7 @@ import os
 try:
     from dotenv import load_dotenv
     load_dotenv()
+    print("Environment variables:", dict(os.environ))
 except ImportError:
     pass
 

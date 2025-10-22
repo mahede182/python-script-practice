@@ -26,8 +26,4 @@ jobs:
         pip install -r requirements.txt
     
     - name: Run DESCO balance check
-      env:
-        ACCOUNT_NO: ${{ secrets.ACCOUNT_NO }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       run: python check_balance.py

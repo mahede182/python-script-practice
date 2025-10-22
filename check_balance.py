@@ -10,6 +10,7 @@ except ImportError:
 
 def fetch_data():
     ACCOUNT_NO = os.environ.get("ACCOUNT_NO")
+    print(f"{ACCOUNT_NO} is account number")
     URL = "https://prepaid.desco.org.bd/api/unified/customer/getBalance"
     params = {'accountNo': ACCOUNT_NO}
 
@@ -29,7 +30,10 @@ def fetch_data():
 
 def telegram_notify(balance):
     token = os.getenv("TELEGRAM_BOT_TOKEN")
+    
     chat_id = os.getenv("TELEGRAM_CHAT_ID")
+    print(f"{token} {chat_id} is account token , chat_id")
+    
     if not token or not chat_id:
         return False, "Telegram not configured (TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID)"
     url = f"https://api.telegram.org/bot{token}/sendMessage"
